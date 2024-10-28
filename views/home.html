@@ -1,0 +1,155 @@
+<!-- home.html: Página de inicio   -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Maax+Rounded&display=swap" rel="stylesheet"/>
+  <link href="/css/home.css" rel="stylesheet"/>
+  <title>Inicio</title>
+  <meta charset="UTF-8">
+  <script src="/js/get_username.js" defer></script>
+
+
+</head>
+
+<body>
+
+
+<!-- Header  -->
+
+<header class="header">
+  <div class="logo-title_section">
+    <img src="/images/logo.png" alt="Logo de la Institución" id="logo_header">
+    <h1 id="main-title_header">Sistema de gestión para la protección de datos<br> personales para sujetos obligados</h1>
+  </div>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li><a href="about_us.html">Acerca de Nosotros</a></li>
+      <li><a href="profile.html">
+        <button id="bt_nav">Perfil</button>
+      </a></li>
+      <li><a id="logoutButton"><img src="/images/logout2.png" id="img_nav"></a></li>
+    </ul>
+    <script src="/js/logout.js"></script>
+  </nav>
+</header>
+
+<!-- Main  -->
+
+<main class="main-content">
+
+  <!-- Welcome, Section  -->
+  <section class="welcome_section">
+    <div class="txt_welcome">
+      <h2 id="h2_welcome">Bienvenido</h2>
+      <h3><span id="usuario-nombre">usuario</span></h3>
+      <br>
+      <p>En la era digital actual, la protección de los datos personales es más crucial que nunca. El ITAIH es su aliado
+        en el cumplimiento de las normativas de protección de datos. Nuestra plataforma ofrece una evaluación integral
+        diseñada para ayudar a los sujetos obligados a verificar y mejorar su cumplimiento con las regulaciones de
+        protección de datos personales, como la Ley de Protección de Datos Personales en Posesión de Sujetos Obligados
+        para el Estado de Hidalgo. <br><br>
+
+        A través de una serie de preguntas detalladas y específicas, el ITAIH analiza sus prácticas actuales y le
+        proporciona un informe exhaustivo sobre su nivel de conformidad. Nuestro objetivo es facilitarle la
+        identificación de áreas de mejora y ofrecerle orientación para implementar las mejores prácticas en protección
+        de datos.</p>
+    </div>
+    <div class="img_welcome">
+      <img src="/images/img2.jpeg" alt="Imagen de ejemplo" id="example-image">
+    </div>
+  </section>
+
+  <!-- Cards Section  -->
+
+  <div class="titleCards"><h2>Marco Conceptual y Normativo</h2></div>
+
+  <section class="cards_section">
+    <div class="card">
+      <h2 class="card-title">Normatividad</h2>
+      <p class="card-description">Consulta las normas sobres las cuales se basa esta evaluación</p>
+      <a href="regulations.html">
+        <button class="card-button">Acceder</button>
+      </a>
+    </div>
+    <div class="card">
+      <h2 class="card-title">Glosario</h2>
+      <p class="card-description">En esta sección podrás encontrar un glosario con toda la terminología usada en la
+        evaluación</p>
+      <a href="glossary.html">
+        <button class="card-button">Acceder</button>
+      </a>
+    </div>
+    <div class="card">
+      <h2 class="card-title">Objetivos</h2>
+      <p class="card-description">En esta sección podrás encontrar los objetivos que impulsan esta evaluación</p>
+      <a href="Objective.html">
+        <button class="card-button">Acceder</button>
+      </a>
+    </div>
+  </section>
+
+  <!-- Eval Cards Section  -->
+
+  <div class="titleCards2"><h2>Evaluación</h2></div>
+
+  <section class="large-card-section">
+    <div class="card">
+      <h2 class="card-title">Instructivo</h2>
+      <p class="card-description">Aprende a usar al maximo esta plataforma</p>
+      <a href="regulations.html">
+        <button class="card-button">Acceder</button>
+      </a>
+    </div>
+    <a href="selection.html" >
+      <div class="card1">
+        <h2 class="card1-title">Evaluación nueva</h2>
+        <p class="card1-description">En esta sección podrás crear una nueva evaluación</p>
+        <a href="glossary.html">
+        </a>
+      </div>
+    </a>
+    <a href="selection2.html">
+      <div class="card2">
+        <h2 class="card1-title">Evaluación existente</h2>
+        <p class="card1-description">En esta sección podrás continuar una evaluación ya existente</p>
+        <a href="glossary.html">
+        </a>
+      </div>
+    </a>
+    <div class="card">
+      <h2 class="card-title">Resultados</h2>
+      <p class="card-description">Consulta los reportes de las evaluaciones completadas</p>
+      <a href="results.html">
+        <button class="card-button">Acceder</button>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-column">
+    <h2 class="footer-title1">Instituto de Transparencia, Acceso a la Información Pública<br>
+      Gubernamental y Protección de Datos Personales del Estado de Hidalgo</h2>
+    <ul class="social-links">
+      <li><a href="https://www.facebook.com/INSTITUTODETRANSPARENCIAHIDALGO/" target="_blank">Facebook</a></li>
+      <li><a href="https://twitter.com/itaih_hidalgo" target="_blank">Twitter</a></li>
+      <li><a href="https://www.youtube.com/channel/UCzk4MGq1CgvWdt-R8uB3G9A" target="_blank">Youtube</a></li>
+    </ul>
+  </div>
+  <div class="footer-column2">
+    <h2 class="footer-title2">@2024</h2>
+    <ul class="footer-links">
+      <li><a href="#enlace1" target="_blank">Terminos y condiciones</a></li>
+      <li><a href="#enlace2" target="_blank">Aviso de Privacidad</a></li>
+      <li><a href="#enlace3" target="_blank">Politica de Cookies</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+
+</html>

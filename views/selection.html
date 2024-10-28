@@ -1,0 +1,103 @@
+<!-- selection.html: Contiene los tratamientos y areas a elegir para comenzar una nueva evaluación  -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Maax+Rounded&display=swap" rel="stylesheet"/>
+  <link href="/css/selection.css" rel="stylesheet"/>
+  <title>Selección</title>
+  <meta charset="UTF-8">
+  <script src="/js/select.js" defer></script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-title_section">
+    <img src="/images/logo.png" alt="Logo de la Institución" class="logo_header">
+    <h1 class="main-title_header">Plataforma de evaluación para medir el grado de madurez<br> en materia de datos
+      personales para sujetos obligados</h1>
+  </div>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li><a href="home.html">Inicio</a></li>
+      <li><a href="profile.html">
+        <button class="bt_nav">Perfil</button>
+      </a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="main">
+
+  <section class="welcome_section">
+    <div class="txt_welcome">
+      <h2 class="h2_welcome">Selección para la evaluación</h2>
+      <h3>Selecciona el tratamiento y el area a evaluar</h3>
+      <br>
+
+    </div>
+
+  </section>
+
+  <section class="Selection">
+
+    <h4>Seleccione tratamiento:</h4>
+    <select name="tratamiento" id="tratamientosSelect" required>
+      <option value="" disabled selected hidden>Selecciona una opción</option>
+    </select>
+    <button onclick="eliminarTratamiento()" class="delete_button">Eliminar Tratamiento Seleccionado</button>
+
+    <form id="formTratamiento" method="POST">
+      <input type="text" id="nombreTratamiento" placeholder="Nuevo Tratamiento" required>
+      <button type="submit" class="add_button">Añadir Tratamiento</button>
+    </form>
+
+
+    <h4>Seleccione el area:</h4>
+    <select name="area" id="areasSelect" required>
+      <option value="" disabled selected hidden>Selecciona una opción</option>
+    </select>
+    <button onclick="eliminarArea()" class="delete_button">Eliminar Área Seleccionada</button>
+
+    <form id="formArea" method="POST">
+      <input type="text" id="nombreArea" placeholder="Nueva Área" required>
+      <button type="submit" class="add_button">Añadir Área</button>
+    </form>
+
+
+
+    <p>Añada o elimine las areas o tratamientos si considera necesario</p>
+
+    <button class="bt_welcome">Comenzar</button>
+
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-column">
+    <h2 class="footer-title1">Instituto de Transparencia, Acceso a la Información Pública<br>
+      Gubernamental y Protección de Datos Personales del Estado de Hidalgo</h2>
+    <ul class="social-links">
+      <li><a href="https://www.facebook.com/INSTITUTODETRANSPARENCIAHIDALGO/" target="_blank">Facebook</a></li>
+      <li><a href="https://twitter.com/itaih_hidalgo" target="_blank">Twitter</a></li>
+      <li><a href="https://www.youtube.com/channel/UCzk4MGq1CgvWdt-R8uB3G9A" target="_blank">Youtube</a></li>
+    </ul>
+  </div>
+  <div class="footer-column2">
+    <h2 class="footer-title2">@2024</h2>
+    <ul class="footer-links">
+      <li><a href="#enlace1">Terminos y condiciones</a></li>
+      <li><a href="#enlace2">Aviso de Privacidad</a></li>
+      <li><a href="#enlace3">Politica de Cookies</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+
+</html>
