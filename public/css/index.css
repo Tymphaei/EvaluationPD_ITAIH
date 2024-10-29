@@ -1,37 +1,70 @@
-body {
-  font-family: Arial, sans-serif;
+/* General Styles */
+body, html {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  font-family: "Inter",sans-serif;
+}
+
+main {
+  display: flex;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100%;
+}
+
+.form-container {
+  width: 35%; /* Ocupa el 40% del ancho */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Centra el contenido verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+  background-color: #f9f9f9;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
   width: 250px;
   height: auto;
-  margin-left: 110px;
+  margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 1.5em;
-  color: #333;
-  margin: 0;
-}
-
-main {
+form {
+  width: 100%;
+  max-width: 480px;
   display: flex;
-  justify-content: space-between;
-  width: 60%;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 2;
-  margin-left: 5%;
-  padding-top: 50px;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.form-container {
-  width: 40%;
+label {
+  font-weight: bold;
+}
 
+input[type="text"],
+input[type="password"] {
+  width: 95%;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  background-color: #6a2cac;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button:hover {
+  background-color: #533a6b;
 }
 
 h2 {
@@ -47,46 +80,45 @@ p {
   text-align: center;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-input {
-  margin-bottom: 20px;
-  padding: 10px;
-  font-size: 1em;
-  border-radius: 10px;
-}
-
-button {
-  padding: 10px;
-  font-size: 1em;
-  background-color: #6a2cac;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-button:hover {
-  background-color: #533a6b;
-}
-
+/* Imagen de Fondo */
 .background-image {
-  position: fixed;
-  top: 0;
-  right: -20%;
-  width: auto;
-  height: 100%;
-  z-index: 0;
+  width: 65%; /* Ocupa el 60% del ancho */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  object-fit: cover;
+  object-position: left; /* La imagen comienza desde el borde izquierdo y se corta a la derecha */
 }
 
-.error{
-  color: red;
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .form-container, .background-image {
+    width: 100%;
+  }
+
+  .background-image {
+    height: 200px; /* Altura ajustada para pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    padding: 8px;
+  }
+
+  button {
+    padding: 8px;
+  }
 }

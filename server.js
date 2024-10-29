@@ -42,10 +42,6 @@ app.get('/:page', authMiddleware.isAuthenticated, (req, res) => {
   res.sendFile(filePath);
 });
 
-app.get('/forbidden', (req, res) => {
-  res.status(403).sendFile(path.join(__dirname, 'views', 'forbidden.html'));
-});
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });

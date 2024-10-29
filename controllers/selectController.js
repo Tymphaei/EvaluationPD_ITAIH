@@ -5,14 +5,16 @@
 const db = require('../config/dbConfig');
 
 exports.getEvaluaciones = (req, res) => {
+  const username = req.session.username;
+
   const sql = `
     SELECT f.form_ID, a.name AS area_nombre, p.name AS tratamiento_nombre, f.date
     FROM formularios f
     JOIN areas a ON f.area_ID = a.area_ID
     JOIN tratamientos p ON f.processing_ID = p.processing_ID
-    WHERE f.complete = 0
+    WHERE f.complete = 0 AND a.user_ID = ?
   `;
-  db.query(sql, (err, result) => {
+  db.query(sql, [username],(err, result) => {
     if (err) {
       console.error('Error al obtener las evaluaciones:', err);
       res.status(500).json({error: 'Error al obtener las evaluaciones'});
@@ -42,18 +44,24 @@ exports.getMaxEvaluationNumber = (req, res) => {
 };
 
 exports.getAreas = (req, res) => {
-  let sql = 'SELECT area_ID, name FROM areas';
-  db.query(sql, (err, result) => {
+  const username = req.session.username;
+
+  let sql = 'SELECT area_ID, name FROM areas WHERE user_ID = ?';
+  db.query(sql, [username],(err, result) => {
     if (err) throw err;
     res.json(result);
+    console.log(result);
   });
 };
 
 exports.getTratamientos = (req, res) => {
-  let sql = 'SELECT processing_ID, name FROM tratamientos';
-  db.query(sql, (err, result) => {
+  const username = req.session.username;
+
+  let sql = 'SELECT processing_ID, name FROM tratamientos WHERE user_ID = ?';
+  db.query(sql, [username],(err, result) => {
     if (err) throw err;
     res.json(result);
+    console.log(result);
   });
 };
 
