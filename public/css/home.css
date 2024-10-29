@@ -87,33 +87,32 @@ main {
   padding: 0;
 }
 
-.welcome_section {
+h2 {
+  font-size: 2em;
+  margin: 0;
+}
+
+/* Welcome Section */
+.welcome-section {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 100px 50px;
   background-color: white;
 }
 
-#h2_welcome{
-  font-size: 32px;
-  font-weight: bolder;
-}
 
-.txt_welcome {
+.text-welcome {
   flex: 1;
-  padding-right: 20px;
-  padding-left: 50px;
-  align-self: flex-start;
+  padding: 0 50px 0 20px;
   line-height: 1.5;
   text-align: justify;
-
 }
 
-.img_welcome {
+.img-welcome {
   flex: 1;
   padding: 50px;
-
 }
 
 #example-image {
@@ -124,37 +123,47 @@ main {
 }
 
 /* Cards Section */
-
-.titleCards{
-  padding-left: 100px;
-  padding-top: 100px;
+.cards {
   background-color: #f5f5f7;
-  font-size: 20px;
+  padding: 120px 50px;
 }
 
-h2{
-  padding: 0;
-  margin: 0;
-
-}
-
-.cards_section {
+section {
   display: flex;
-  padding-top: 120px;
-  padding-bottom: 250px;
-  background-color: #f5f5f7;
-
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(50px);
 }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
 
 .card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30%;
+  width: 20%;
+  padding: 20px;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 20px 40px;
-  margin: 0 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: white;
 }
@@ -166,102 +175,83 @@ h2{
 }
 
 .card-description {
-  flex-grow: 1;
   font-size: 16px;
   color: #666;
-  padding-bottom: 20px;
   line-height: 1.5;
 }
 
-.card-button {
+.card-link {
   align-self: flex-end;
-  margin-top: 10px;
   font-size: 16px;
   color: #fff;
   background-color: #533a6b;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
   padding: 10px 20px;
+  cursor: pointer;
+  display: inline-block;
 }
 
-.card-button:hover {
+.card-link:hover {
   background-color: #0056b3;
 }
 
-/* Large Card Section */
-
-.titleCards2{
-  padding-left: 100px;
-  padding-top: 100px;
+/* Evaluation Cards Section */
+.evaluation-cards {
   background-color: white;
-  font-size: 20px;
+  padding: 120px 50px;
 }
 
-.large-card-section {
-  display: flex;
-  justify-content: center;
-  padding-top: 120px;
-  padding-bottom: 250px;
-}
-
-.card1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.large-card {
+  width: 20%;
   text-align: center;
-  width: 30%;
+  padding: 40px 20px;
+  margin-right: 15px;
+  text-decoration: none;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 20px 40px;
-  margin: 0 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #6a2cac;
-
+  background-color: white;
 }
-.card1:hover {
+
+.large-card h3.card-title,
+.large-card p.card-description {
+  color: #fff;
+}
+
+.large-card1 {
+  background-color: #6a2cac;
+}
+
+.large-card1:hover {
   background-color: #533a6b;
 }
 
-.card2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 30%;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 20px 40px;
-  margin: 0 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.large-card2 {
   background-color: #368107;
-
 }
-.card2:hover {
+
+.large-card2:hover {
   background-color: #316c0b;
 }
 
-.card1-title {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-  color: #ffffff;
-}
-
-.card1-description {
-  flex-grow: 1;
-  font-size: 16px;
-  color: #ffffff;
-  padding-bottom: 20px;
-  line-height: 1.5;
-
-}
-
-a{
+.large-card a {
   text-decoration: none;
+  color: inherit;
 }
 
+.large-card1 a,
+.large-card2 a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* Footer Section */
 

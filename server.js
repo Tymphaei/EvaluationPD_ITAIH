@@ -2,6 +2,8 @@
    Servidor Node.Js
 */
 
+const {PORT} = require('./config.js');
+
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
@@ -48,6 +50,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
-app.listen(3000, () => {
-  console.log('Servidor escuchando en http://localhost:3000');
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
