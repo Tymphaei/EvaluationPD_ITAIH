@@ -9,5 +9,6 @@ const selectController = require("../controllers/selectController");
 
 router.get('/resultados', resultController.getResults);
 router.get('/graficas/:formID', resultController.getGraphs)
+router.get('/responses/:formID', resultController.getResponsesByFormId)
 
 module.exports = router;
