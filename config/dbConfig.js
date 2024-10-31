@@ -11,20 +11,16 @@ const {
   DATABASE_PORT
 } = require('../config.js');
 
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
   host: DATABASE_HOST,
   user: DATABASE_USERNAME,
   password: DATABASE_PASSWORD,
   database: MYSQL_DATABASE,
-  port: DATABASE_PORT
+  port: DATABASE_PORT,
+  waitForConnections: true,
+  connectionLimit: 100,
+  queueLimit: 0
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.error('Error conectando a la base de datos:', err.stack);
-    return;
-  }
-  console.log('Conexión a la base de datos exitosa.');
-});
+module.exports = pool.promise();
 
-module.exports = connection;

@@ -4,7 +4,7 @@
 
 const db = require('../config/dbConfig');
 
-exports.getEvaluaciones = (req, res) => {
+exports.getEvaluaciones = async (req, res) => {
   const username = req.session.username;
 
   const sql = `
@@ -14,18 +14,17 @@ exports.getEvaluaciones = (req, res) => {
     JOIN tratamientos p ON f.processing_ID = p.processing_ID
     WHERE f.complete = 0 AND a.user_ID = ?
   `;
-  db.query(sql, [username],(err, result) => {
-    if (err) {
-      console.error('Error al obtener las evaluaciones:', err);
-      res.status(500).json({error: 'Error al obtener las evaluaciones'});
-    } else {
-      res.json(result);
-    }
-  });
+  try {
+    const [result] = await db.query(sql, [username]);
+    res.json(result);
+  } catch (err) {
+    console.error('Error al obtener las evaluaciones:', err);
+    res.status(500).json({ error: 'Error al obtener las evaluaciones' });
+  }
 };
 
-exports.getMaxEvaluationNumber = (req, res) => {
-  const {form_ID} = req.params;
+exports.getMaxEvaluationNumber = async (req, res) => {
+  const { form_ID } = req.params;
 
   const sql = `
     SELECT MAX(evaluation_number) AS maxEvaluationNumber
@@ -33,129 +32,133 @@ exports.getMaxEvaluationNumber = (req, res) => {
     WHERE form_ID = ?
   `;
 
-  db.query(sql, [form_ID], (err, result) => {
-    if (err) {
-      console.error('Error al obtener el evaluation_number máximo:', err);
-      res.status(500).json({error: 'Error al obtener el evaluation_number'});
-    } else {
-      res.json(result[0]);
-    }
-  });
+  try {
+    const [result] = await db.query(sql, [form_ID]);
+    res.json(result[0]);
+  } catch (err) {
+    console.error('Error al obtener el evaluation_number máximo:', err);
+    res.status(500).json({ error: 'Error al obtener el evaluation_number' });
+  }
 };
 
-exports.getAreas = (req, res) => {
+exports.getAreas = async (req, res) => {
   const username = req.session.username;
 
-  let sql = 'SELECT area_ID, name FROM areas WHERE user_ID = ?';
-  db.query(sql, [username],(err, result) => {
-    if (err) throw err;
+  const sql = 'SELECT area_ID, name FROM areas WHERE user_ID = ?';
+  try {
+    const [result] = await db.query(sql, [username]);
     res.json(result);
     console.log(result);
-  });
+  } catch (err) {
+    console.error('Error al obtener áreas:', err);
+    res.status(500).json({ error: 'Error al obtener áreas' });
+  }
 };
 
-exports.getTratamientos = (req, res) => {
+exports.getTratamientos = async (req, res) => {
   const username = req.session.username;
 
-  let sql = 'SELECT processing_ID, name FROM tratamientos WHERE user_ID = ?';
-  db.query(sql, [username],(err, result) => {
-    if (err) throw err;
+  const sql = 'SELECT processing_ID, name FROM tratamientos WHERE user_ID = ?';
+  try {
+    const [result] = await db.query(sql, [username]);
     res.json(result);
     console.log(result);
-  });
+  } catch (err) {
+    console.error('Error al obtener tratamientos:', err);
+    res.status(500).json({ error: 'Error al obtener tratamientos' });
+  }
 };
 
-exports.addArea = (req, res) => {
-  const {name} = req.body;
+exports.addArea = async (req, res) => {
+  const { name } = req.body;
   const username = req.session.username;
 
   if (!name) {
-    return res.status(400).json({message: 'El nombre no puede estar vacío.'});
+    return res.status(400).json({ message: 'El nombre no puede estar vacío.' });
   }
 
-  let checkSql = 'SELECT * FROM areas WHERE name = ?';
-  db.query(checkSql, [name], (err, result) => {
-    if (err) throw err;
+  const checkSql = 'SELECT * FROM areas WHERE name = ?';
+  try {
+    const [result] = await db.query(checkSql, [name]);
 
     if (result.length > 0) {
-      return res.status(409).json({message: 'El área ya existe.'});
+      return res.status(409).json({ message: 'El área ya existe.' });
     }
 
-    let sql = 'INSERT INTO areas (name, user_id) VALUES (?, ?)';
-    db.query(sql, [name, username], (err, result) => {
-      if (err) throw err;
-      res.json({message: 'Área añadida', id: result.insertId});
-    });
-  });
+    const insertSql = 'INSERT INTO areas (name, user_id) VALUES (?, ?)';
+    const [insertResult] = await db.query(insertSql, [name, username]);
+    res.json({ message: 'Área añadida', id: insertResult.insertId });
+  } catch (err) {
+    console.error('Error al añadir área:', err);
+    res.status(500).json({ error: 'Error al añadir área' });
+  }
 };
 
-exports.addTratamiento = (req, res) => {
-  const {name} = req.body;
+exports.addTratamiento = async (req, res) => {
+  const { name } = req.body;
   const username = req.session.username;
 
   if (!name) {
-    return res.status(400).json({message: 'El nombre no puede estar vacío.'});
+    return res.status(400).json({ message: 'El nombre no puede estar vacío.' });
   }
 
-  let checkSql = 'SELECT * FROM tratamientos WHERE name = ?';
-  db.query(checkSql, [name], (err, result) => {
-    if (err) throw err;
+  const checkSql = 'SELECT * FROM tratamientos WHERE name = ?';
+  try {
+    const [result] = await db.query(checkSql, [name]);
 
     if (result.length > 0) {
-      return res.status(409).json({message: 'El tratamiento ya existe.'});
+      return res.status(409).json({ message: 'El tratamiento ya existe.' });
     }
 
-    let sql = 'INSERT INTO tratamientos (name, user_id) VALUES (?, ?)';
-    db.query(sql, [name, username], (err, result) => {
-      if (err) throw err;
-      res.json({message: 'Tratamiento añadido', id: result.insertId});
-    });
-  });
+    const insertSql = 'INSERT INTO tratamientos (name, user_id) VALUES (?, ?)';
+    const [insertResult] = await db.query(insertSql, [name, username]);
+    res.json({ message: 'Tratamiento añadido', id: insertResult.insertId });
+  } catch (err) {
+    console.error('Error al añadir tratamiento:', err);
+    res.status(500).json({ error: 'Error al añadir tratamiento' });
+  }
 };
 
-
-exports.deleteArea = (req, res) => {
-  const {area_id} = req.params;
+exports.deleteArea = async (req, res) => {
+  const { area_id } = req.params;
 
   if (!area_id) {
-    return res.status(400).json({message: 'ID de area no válido'});
+    return res.status(400).json({ message: 'ID de area no válido' });
   }
 
-  let sql = 'DELETE FROM areas WHERE area_id = ?';
-  db.query(sql, [area_id], (err, result) => {
-    if (err) {
-      console.error('Error al eliminar el area:', err);
-      return res.status(500).json({message: 'Error al eliminar el area'});
-    }
+  const sql = 'DELETE FROM areas WHERE area_id = ?';
+  try {
+    const [result] = await db.query(sql, [area_id]);
 
     if (result.affectedRows === 0) {
-      return res.status(404).json({message: 'Area no encontrada'});
+      return res.status(404).json({ message: 'Área no encontrada' });
     }
 
-    res.json({message: 'Area eliminada'});
-  });
+    res.json({ message: 'Área eliminada' });
+  } catch (err) {
+    console.error('Error al eliminar área:', err);
+    res.status(500).json({ error: 'Error al eliminar área' });
+  }
 };
 
-
-exports.deleteTratamiento = (req, res) => {
-  const {processing_id} = req.params;
+exports.deleteTratamiento = async (req, res) => {
+  const { processing_id } = req.params;
 
   if (!processing_id) {
-    return res.status(400).json({message: 'ID de tratamiento no válido'});
+    return res.status(400).json({ message: 'ID de tratamiento no válido' });
   }
 
-  let sql = 'DELETE FROM tratamientos WHERE processing_id = ?';
-  db.query(sql, [processing_id], (err, result) => {
-    if (err) {
-      console.error('Error al eliminar el tratamiento:', err);
-      return res.status(500).json({message: 'Error al eliminar el tratamiento'});
-    }
+  const sql = 'DELETE FROM tratamientos WHERE processing_id = ?';
+  try {
+    const [result] = await db.query(sql, [processing_id]);
 
     if (result.affectedRows === 0) {
-      return res.status(404).json({message: 'Tratamiento no encontrado'});
+      return res.status(404).json({ message: 'Tratamiento no encontrado' });
     }
 
-    res.json({message: 'Tratamiento eliminado'});
-  });
+    res.json({ message: 'Tratamiento eliminado' });
+  } catch (err) {
+    console.error('Error al eliminar tratamiento:', err);
+    res.status(500).json({ error: 'Error al eliminar tratamiento' });
+  }
 };
-
