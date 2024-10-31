@@ -183,10 +183,9 @@ header {
 }
 
 
-/* styles.css */
 .response-table {
   width: 100%;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 20px 0;
   border-collapse: collapse;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -219,7 +218,7 @@ header {
   font-weight: bold;
   color: #555;
   background-color: #f4f4f4;
-  width: 30%;
+  width: 10%;
 }
 
 .response-table td:last-child {
@@ -231,7 +230,6 @@ header {
   transition: background-color 0.3s ease;
 }
 
-/* Opcional: Mejora la apariencia en pantallas pequeñas */
 @media (max-width: 768px) {
   .response-table {
     width: 90%;

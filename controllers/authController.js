@@ -3,7 +3,7 @@
 */
 
 const bcrypt = require('bcryptjs');
-const db = require('../config/dbConfig');  // Cambiado a `db` para representar el pool de conexiones
+const db = require('../config/dbConfig');
 
 const authController = {
   validateUser: async (req, res) => {
@@ -38,6 +38,32 @@ const authController = {
       res.json({ name: req.session.name });
     } else {
       res.status(401).json({ error: 'No authenticated' });
+    }
+  },
+
+  getFormData: async (req, res) => {
+    const { form_ID } = req.query;
+
+    try {
+      const [formResults] = await db.query(
+        `SELECT f.date, a.name AS area, t.name AS tratamiento
+         FROM formularios f
+         JOIN areas a ON f.area_ID = a.area_ID
+         JOIN tratamientos t ON f.processing_ID = t.processing_ID
+         WHERE f.form_ID = ?`,
+        [form_ID]
+      );
+
+
+      if (formResults.length === 0) {
+        return res.status(404).json({ success: false, message: 'Formulario no encontrado' });
+      }
+
+      res.json({ success: true, data: formResults[0] });
+
+    } catch (err) {
+      console.error('Error en la consulta:', err);
+      res.status(500).json({ success: false, message: 'Error en el servidor' });
     }
   },
 };

@@ -1,10 +1,7 @@
-// scripts.js
 document.addEventListener('DOMContentLoaded', async () => {
   const formID = localStorage.getItem('form_ID');
-  console.log("Form ID desde localStorage:", formID);  // Verifica si formId está presente
   if (!formID) return;
 
-  // Mapeo de los valores de porcentaje a sus textos correspondientes
   const percentageTextMap = {
     0: '0% - Inexistente',
     1: '25% - Inicial',
@@ -17,21 +14,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const response = await fetch(`/api/responses/${formID}`);
     const data = await response.json();
-    console.log("Datos obtenidos:", data);  // Log para verificar los datos
+    console.log("Datos obtenidos:", data);
 
-    // Obtener todos los contenedores con ID que comiencen con 'table-container'
     const containers = document.querySelectorAll('div[id^="table-container"]');
 
-    // Generar una tabla para cada contenedor
     containers.forEach((container, index) => {
-      if (index >= data.length) return; // Evitar errores si hay más contenedores que datos
+      if (index >= data.length) return;
 
-      const row = data[index]; // Obtener la fila de datos correspondiente
+      const row = data[index];
 
       const table = document.createElement('table');
       table.classList.add('response-table');
 
-      // Crear filas y celdas
       const fields = [
         { label: 'Porcentaje', value: percentageTextMap[row.percentage] || 'Valor desconocido' },
         { label: 'Respuesta', value: row.response },
@@ -54,7 +48,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         table.appendChild(tr);
       });
 
-      // Agregar la tabla al contenedor correspondiente
       container.appendChild(table);
     });
   } catch (error) {

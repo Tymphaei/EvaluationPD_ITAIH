@@ -55,7 +55,6 @@ exports.getResponsesByFormId = async (req, res) => {
 
   try {
     const [result] = await db.query(sql,[formID]);
-    console.log("Resultado de la consulta:", result); // Log para verificar el resultado de la consulta
     res.json(result);
   } catch (err) {
     console.error('Error al obtener los datos de la evaluacion:', err);
