@@ -77,9 +77,9 @@ exports.addArea = async (req, res) => {
     return res.status(400).json({ message: 'El nombre no puede estar vacío.' });
   }
 
-  const checkSql = 'SELECT * FROM areas WHERE name = ?';
+  const checkSql = 'SELECT * FROM areas WHERE name = ? AND user_ID = ?';
   try {
-    const [result] = await db.query(checkSql, [name]);
+    const [result] = await db.query(checkSql, [name, username]);
 
     if (result.length > 0) {
       return res.status(409).json({ message: 'El área ya existe.' });
@@ -102,9 +102,9 @@ exports.addTratamiento = async (req, res) => {
     return res.status(400).json({ message: 'El nombre no puede estar vacío.' });
   }
 
-  const checkSql = 'SELECT * FROM tratamientos WHERE name = ?';
+  const checkSql = 'SELECT * FROM tratamientos WHERE name = ? AND user_ID = ?';
   try {
-    const [result] = await db.query(checkSql, [name]);
+    const [result] = await db.query(checkSql, [name, username]);
 
     if (result.length > 0) {
       return res.status(409).json({ message: 'El tratamiento ya existe.' });
