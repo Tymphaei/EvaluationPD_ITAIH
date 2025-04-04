@@ -50,7 +50,7 @@ body {
 }
 
 .nav-list li {
-  margin-left: 20px;
+  margin-left: 25px;
 }
 
 .nav-list a {
@@ -309,4 +309,8 @@ section {
 
 .social-links a:hover, .footer-links a:hover {
   color: #070793;
+}
+
+#cards, #evaluation {
+  scroll-margin-top: 100px;
 }

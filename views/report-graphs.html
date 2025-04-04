@@ -1,0 +1,95 @@
+<!-- report-graphs.html: Página que genera los resultados en graficas de barras  -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Maax+Rounded&display=swap" rel="stylesheet"/>
+  <link href="/css/report.css" rel="stylesheet"/>
+  <title>Reporte Gráficas</title>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/js/get_info.js"></script>
+  <script src="/js/get_username.js" defer></script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-title_section">
+    <img src="/images/logo.png" alt="Logo de la Institución" class="logo_header">
+    <h1 class="main-title_header">Plataforma de evaluación para medir el grado de madurez<br> en materia de datos
+      personales para sujetos obligados</h1>
+  </div>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li><a href="home.html">Inicio</a></li>
+      <li><a href="profile.html">
+        <button class="bt_nav">Perfil</button>
+      </a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="main">
+  <h2>Reporte de la Evaluación para Medir el Grado de Madurez en el Sistema de Gestión en Materia Protección de Datos
+    Personales en Posesión de Sujetos Obligados</h2>
+  <br>
+
+  <p>Institución: <span id="usuario-nombre">nombre</span> </p>
+  <p>Tratamiento: <span id="tratamiento">tratamiento</span></p>
+  <p>Area: <span id="area">area</span></p>
+  <p>Fecha: <span id="fecha">fecha</span></p>
+  <br>
+
+
+
+
+
+
+  <h2 class="subtitle">Resultados individuales por sección</h2>
+
+  <div class="card-container" id="cardContainer"></div>
+
+  <h2 class="subtitle">Resultado general de la evaluación</h2>
+
+  <div class="general-card" id="generalCard"></div>
+
+  <!-- Nuevo Mapa de Calor -->
+  <h2 class="subtitle">Frecuencia de Respuestas por Sección</h2>
+  <div id="heatmapContainer"></div>
+
+  <div class="button-container">
+    <a href="report-responses.html" class="response-button">Ver Respuestas Detalladas</a>
+  </div>
+
+
+
+</main>
+
+<footer class="footer">
+  <div class="footer-column">
+    <h2 class="footer-title1">Instituto de Transparencia, Acceso a la Información Pública<br>
+      Gubernamental y Protección de Datos Personales del Estado de Hidalgo</h2>
+    <ul class="social-links">
+      <li><a href="https://www.facebook.com/INSTITUTODETRANSPARENCIAHIDALGO/" target="_blank">Facebook</a></li>
+      <li><a href="https://twitter.com/itaih_hidalgo" target="_blank">Twitter</a></li>
+      <li><a href="https://www.youtube.com/channel/UCzk4MGq1CgvWdt-R8uB3G9A" target="_blank">Instagram</a></li>
+    </ul>
+  </div>
+  <div class="footer-column2">
+    <h2 class="footer-title2">@2024</h2>
+    <ul class="footer-links">
+      <li><a href="#enlace1">Terminos y condiciones</a></li>
+      <li><a href="#enlace2">Aviso de Privacidad</a></li>
+      <li><a href="#enlace3">Politica de Cookies</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="/js/graphs.js"></script>
+
+</body>
+
+</html>

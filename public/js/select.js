@@ -159,7 +159,6 @@ function crearFormulario(processing_ID, area_ID) {
         area_ID: area_ID
       }
     };
-    console.log('Datos que se están enviando al servidor:', formData);
 
 
     fetch('/api/crear-formulario', {

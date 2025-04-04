@@ -48,7 +48,6 @@ exports.getAreas = async (req, res) => {
   try {
     const [result] = await db.query(sql, [username]);
     res.json(result);
-    console.log(result);
   } catch (err) {
     console.error('Error al obtener áreas:', err);
     res.status(500).json({ error: 'Error al obtener áreas' });
@@ -62,7 +61,6 @@ exports.getTratamientos = async (req, res) => {
   try {
     const [result] = await db.query(sql, [username]);
     res.json(result);
-    console.log(result);
   } catch (err) {
     console.error('Error al obtener tratamientos:', err);
     res.status(500).json({ error: 'Error al obtener tratamientos' });

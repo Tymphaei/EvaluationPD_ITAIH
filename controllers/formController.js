@@ -6,7 +6,7 @@ const db = require('../config/dbConfig');
 
 exports.addAnswer = async (req, res) => {
   const { secDetails, respuestas } = req.body;
-  console.log(req.body);
+
 
   const queryFormulario = 'INSERT INTO secciones (evaluation_number, form_ID) VALUES (?,?)';
 
@@ -27,7 +27,7 @@ exports.addAnswer = async (req, res) => {
 
 exports.addForm = async (req, res) => {
   const { formDetails } = req.body;
-  console.log(req.body);
+
 
   const queryFormulario = 'INSERT INTO formularios (area_ID, processing_ID, complete) VALUES (?, ?, ?)';
 
@@ -54,5 +54,20 @@ exports.marcarFormularioCompleto = async (req, res) => {
   } catch (err) {
     console.error('Error al marcar el formulario como completo:', err);
     res.status(500).json({ success: false, message: 'Error al actualizar el formulario' });
+  }
+};
+
+exports.eliminarFormulariosSinSecciones = async (req, res) => {
+  const sql = `
+    DELETE FROM formularios
+    WHERE form_ID NOT IN (SELECT DISTINCT form_ID FROM secciones);
+  `;
+
+  try {
+    const [result] = await db.query(sql);
+    res.json({ success: true, deletedRows: result.affectedRows });
+  } catch (err) {
+    console.error('Error al eliminar formularios sin secciones:', err);
+    res.status(500).json({ success: false, message: 'Error al eliminar formularios sin secciones' });
   }
 };

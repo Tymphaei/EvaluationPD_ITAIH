@@ -3,8 +3,7 @@
 */
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const form_ID = localStorage.getItem('form_ID');
-  console.log(form_ID);
+  const form_ID = localStorage.getItem('formID');
   try {
     const response = await fetch(`/get-form-data?form_ID=${form_ID}`);
     const result = await response.json();

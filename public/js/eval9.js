@@ -70,7 +70,7 @@ function guardarFormulario(action) {
           window.location.href = 'home.html';
         } else if (action === 'continue') {
           alert('Formulario guardado con éxito, continúa al reporte de resultados');
-          window.location.href = 'report.html';
+          window.location.href = 'report-graphs.html';
         }
       } else {
         alert('Ocurrió un error al guardar el formulario');

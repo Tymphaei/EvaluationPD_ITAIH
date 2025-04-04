@@ -45,7 +45,6 @@ exports.getGraphs = async (req, res) => {
 
 exports.getResponsesByFormId = async (req, res) => {
   const formID = req.params.formID;
-  console.log("formId recibido en el servidor:", formID);
   const sql = `
     SELECT r.percentage, r.response, r.evidence, r.actions
     FROM respuestas r

@@ -8,7 +8,7 @@ const bcrypt = require('bcryptjs');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Mayelon7',
+  password: 'Zethus001',
   database: 'itaih_datospersonales'
 });
 
@@ -19,9 +19,9 @@ connection.connect((err) => {
   }
   console.log('Conexión a la base de datos exitosa.');
 
-  const username = 'elizabeth';
-  const password = 'M-nribot123';
-  const name = 'Comisonado Elizabeth Monribot Domínguez';
+  const username = 'leonardo';
+  const password = 'Zethus001';
+  const name = 'Leonardo Chavez Mendez';
   const adress = '';
   const email = '';
 

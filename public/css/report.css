@@ -84,14 +84,14 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 60px;
 }
 .card {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 30px;
-  width: 500px;
+  width: 600px;
   text-align: center;
 }
 
@@ -136,6 +136,11 @@ header {
   flex:1;
   font-size: 60px;
   text-align: left;
+}
+
+.subtitle{
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .txt_welcome {
@@ -241,7 +246,26 @@ header {
   }
 }
 
+.button-container {
+  text-align: center;
+  margin: 100px 0;
+}
 
+.response-button, .back-button {
+  background: #2c3e50;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-family: 'Maax Rounded', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.response-button:hover, .back-button:hover {
+  background: #34495e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
 /* Footer Section */
 
@@ -299,4 +323,105 @@ header {
 
 .social-links a:hover, .footer-links a:hover {
   color: #070793;
+}
+
+
+/* Mapa de Calor - Versión Moderna */
+#heatmapContainer {
+  margin: 40px 0;
+  background: #ffffff;
+  border-radius: 0; /* Eliminar bordes redondeados */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.heatmap-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Inter', sans-serif;
+  table-layout: fixed;
+}
+
+.heatmap-table th {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 1.2rem;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9em;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.heatmap-table td {
+  padding: 1.5rem;
+  border: 1px solid #e8eff5;
+  text-align: center;
+  font-weight: 500;
+  color: #2c3e50;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  line-height: 1.4;
+}
+
+.heatmap-table tr:nth-child(even) td {
+  background: #f9fbfd;
+}
+
+.heatmap-table tr:hover td {
+  background: #f3f7fb;
+  transform: scale(1.02);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* Nueva escala de colores más moderna */
+:root {
+  --heatmap-low: #ff6b6b;    /* Rojo coral */
+  --heatmap-medium: #ffd93d; /* Amarillo vibrante */
+  --heatmap-high: #4ecdc4;   /* Verde azulado */
+}
+
+
+
+/* Leyenda moderna */
+.heatmap-legend {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.legend-color {
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #heatmapContainer {
+    padding: 1rem;
+    margin: 20px -15px;
+  }
+
+  .heatmap-table th,
+  .heatmap-table td {
+    padding: 0.8rem;
+    font-size: 0.85em;
+  }
 }

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const formID = localStorage.getItem('form_ID');
+  const formID = localStorage.getItem('formID');
   const cardContainer = document.getElementById('cardContainer');
   const generalCard = document.getElementById('generalCard');
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             new Chart(canvas, {
               type: 'bar',
               data: {
-                labels: percentages.map((_, i) => `Opción ${i + 1}`),
+                labels: percentages.map((_, i) => `Elemento ${i + 1}`),
                 datasets: [{
                   label: `Sección ${page}`,
                   data: percentages,
@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
         });
+        createHeatmap(data);
       } else {
         const message = document.createElement('p');
         message.textContent = "No hay datos disponibles para mostrar.";
@@ -113,3 +114,98 @@ document.addEventListener('DOMContentLoaded', () => {
       generalCard.appendChild(message);
     });
 });
+
+
+
+const createHeatmap = (data) => {
+  if (!data || !Array.isArray(data)) {
+    console.error('Datos inválidos para el mapa de calor:', data);
+    return;
+  }
+  const heatmapData = {};
+
+
+  data.forEach(item => {
+    const section = item.evaluation_number;
+    const score = item.percentage;
+
+    if (!heatmapData[section]) {
+      heatmapData[section] = [0, 0, 0, 0, 0];
+    }
+
+    if (score >= 0 && score <= 4) {
+      heatmapData[section][score]++;
+    }
+  });
+
+  const container = document.getElementById('heatmapContainer');
+
+  if (!container) {
+    console.error('Contenedor del mapa de calor no encontrado');
+    return;
+  }
+  const table = document.createElement('table');
+  table.className = 'heatmap-table';
+
+  // Cabecera
+  const headerRow = table.insertRow();
+  ['Sección', '0%', '25%', '50%', '75%', '100%'].forEach(text => {
+    const th = document.createElement('th');
+    th.textContent = text;
+    headerRow.appendChild(th);
+  });
+
+  // Filas de datos
+  Object.keys(heatmapData).sort().forEach(section => {
+    const scores = heatmapData[section];
+    const total = scores.reduce((a, b) => a + b, 0);
+
+    const row = table.insertRow();
+
+    // Celda de sección
+    const sectionCell = row.insertCell();
+    sectionCell.textContent = `Sección ${section}`;
+
+    // Celdas de frecuencia
+    scores.forEach((count, index) => {
+      const cell = row.insertCell();
+      const percentage = total > 0 ? (count / total * 100).toFixed(1) + '%' : '0%';
+
+      cell.textContent = `${count} (${percentage})`;
+      cell.style.backgroundColor = getHeatmapColor(count / total);
+    });
+  });
+
+  container.appendChild(table);
+};
+
+// Función de color (rojo-bajo → verde-alto)
+const getHeatmapColor = (value) => {
+  const hue = value * 120; // 0 = rojo, 120 = verde
+  return `hsl(${hue}, 100%, 50%)`;
+};
+
+// Llamar después de generar las gráficas
+createHeatmap(data); // 'data' es el JSON original de la API
+
+// Agregar al final de createHeatmap()
+const legend = document.createElement('div');
+legend.className = 'heatmap-legend';
+
+[0, 0.25, 0.5, 0.75, 1].forEach(value => {
+  const item = document.createElement('div');
+  item.className = 'legend-item';
+
+  const colorBox = document.createElement('div');
+  colorBox.className = 'legend-color';
+  colorBox.style.backgroundColor = getHeatmapColor(value);
+
+  const label = document.createElement('span');
+  label.textContent = `${Math.round(value * 100)}% Frecuencia`;
+
+  item.appendChild(colorBox);
+  item.appendChild(label);
+  legend.appendChild(item);
+});
+
+container.appendChild(legend);

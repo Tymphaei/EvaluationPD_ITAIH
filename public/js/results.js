@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
           button.addEventListener('click', function () {
             const formID = this.getAttribute('data-form-id');
             console.log('form_ID seleccionado:', formID);
-            localStorage.setItem('form_ID', formID);
-            window.location.href = `report.html`;
+            localStorage.setItem('formID', formID);
+            window.location.href = `report-graphs.html`;
           });
         });
         console.log('Eventos de clic asignados a botones');

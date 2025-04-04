@@ -3,7 +3,10 @@
 */
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('/api/evaluaciones')
+  fetch('/api/eliminar-formularios-huerfanos', { method: 'DELETE' })
+    .then(() => {
+      return fetch('/api/evaluaciones');
+    })
     .then(response => response.json())
     .then(data => {
       const lista = document.getElementById('listaFormularios');
@@ -20,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       document.querySelectorAll('.btn-seleccionar').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
           const formID = this.getAttribute('data-form-id');
 
           localStorage.setItem('formID', formID);
@@ -31,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
               const evaluationNumber = data.maxEvaluationNumber;
 
               if (evaluationNumber) {
-                window.location.href = `eval${evaluationNumber+1}.html`;
+                window.location.href = `eval${evaluationNumber + 1}.html`;
               } else {
                 alert('No se encontró ninguna evaluación asociada a este formulario.');
               }
