@@ -14,19 +14,22 @@
 <body>
 
 
-<header>
+<header class="header">
   <div class="logo-title_section">
-    <img src="/images/logo.png" alt="Logo de la Institución" class="logo_header">
-    <h1 class="main-title_header">Plataforma de evaluación para medir el grado de madurez<br> en materia de datos
-      personales para sujetos obligados</h1>
+    <img src="/images/logo.png" alt="Logo de la Institución" id="logo_header">
+    <h1 id="main-title_header">Sistema de gestión para la protección de datos personales para sujetos obligados</h1>
   </div>
   <nav class="nav">
     <ul class="nav-list">
-      <li><a href="home.html">Inicio</a></li>
+      <li><a href="home.html#">Inicio</a></li>
+      <li><a href="home.html#cards">Normativas</a></li>
+      <li><a href="home.html#evaluation">Evaluación</a></li>
       <li><a href="profile.html">
-        <button class="bt_nav">Perfil</button>
+        <button id="bt_nav">Perfil</button>
       </a></li>
+      <li><a id="logoutButton"><img src="/images/signout.png" id="img_nav"></a></li>
     </ul>
+    <script src="/js/logout.js"></script>
   </nav>
 </header>
 

@@ -9,23 +9,27 @@
   <link href="/css/profile.css" rel="stylesheet"/>
   <title>Perfil</title>
   <meta charset="UTF-8">
+  <script src="/js/get_username.js"></script>
 </head>
 
 <body>
 
-<header>
+<header class="header">
   <div class="logo-title_section">
-    <img src="/images/logo.png" alt="Logo de la Institución" class="logo_header">
-    <h1 class="main-title_header">Plataforma de evaluación para medir el grado de madurez<br> en materia de datos
-      personales para sujetos obligados</h1>
+    <img src="/images/logo.png" alt="Logo de la Institución" id="logo_header">
+    <h1 id="main-title_header">Sistema de gestión para la protección de datos personales para sujetos obligados</h1>
   </div>
   <nav class="nav">
     <ul class="nav-list">
-      <li><a href="about_us.html">Acerca de nosotros</a></li>
-      <li><a href="home.html">
-        <button class="bt_nav">Inicio</button>
+      <li><a href="home.html#">Inicio</a></li>
+      <li><a href="home.html#cards">Normativas</a></li>
+      <li><a href="home.html#evaluation">Evaluación</a></li>
+      <li><a href="profile.html">
+        <button id="bt_nav">Perfil</button>
       </a></li>
+      <li><a id="logoutButton"><img src="/images/signout.png" id="img_nav"></a></li>
     </ul>
+    <script src="/js/logout.js"></script>
   </nav>
 </header>
 
@@ -36,8 +40,7 @@
       <img src="/images/logo.png" alt="Imagen" class="image">
     </div>
     <div class="column column-70">
-      <h2>Nombre: </h2>
-      <h2>Dirección: </h2>
+      <h2><span id="usuario-nombre">usuario</span></h2>
     </div>
   </div>
 

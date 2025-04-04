@@ -6,7 +6,7 @@ body {
 
 /* Header Section */
 
-header {
+.header {
   position: fixed;
   width: 98%;
   top: 0;
@@ -24,12 +24,12 @@ header {
   align-items: center;
 }
 
-.logo_header {
+#logo_header {
   height: 100px;
   margin-right: 15px;
 }
 
-.main-title_header {
+#main-title_header {
   font-size: 22px;
   font-weight: normal;
   color: whitesmoke;
@@ -50,7 +50,7 @@ header {
 }
 
 .nav-list li {
-  margin-left: 20px;
+  margin-left: 25px;
 }
 
 .nav-list a {
@@ -63,11 +63,11 @@ header {
   color: #6a2cac;
 }
 
-.img_nav{
+#img_nav{
   height: 50px;
 }
 
-.bt_nav{
+#bt_nav{
   height: 52px;
   width: 89px;
   color: white;
@@ -76,7 +76,7 @@ header {
   font-size: 16px;
 }
 
-.bt_nav:hover{
+#bt_nav:hover{
   background-color: #533a6b;
 }
 
