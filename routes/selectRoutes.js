@@ -1,5 +1,5 @@
 /*
-   Rutas para las areas y tratamientos
+   Rutas para las áreas y tratamientos
 */
 
 const express = require('express');

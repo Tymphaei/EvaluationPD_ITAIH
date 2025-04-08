@@ -1,5 +1,5 @@
 /*
-   Funcion para obtener los datos del usuario y el formualario para el reporte
+   Función para obtener los datos del usuario y el formulario para el reporte
 */
 
 document.addEventListener('DOMContentLoaded', async () => {

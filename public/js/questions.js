@@ -1,5 +1,5 @@
 /*
-   Script para generar los select e inputs automaticamente
+   Script para generar los select e inputs automáticamente
 */
 
 let contador = 0;
@@ -36,7 +36,7 @@ function crearDiv(contenedorId) {
 
   const opciones = [
     {valor: 0, texto: '0% -  Inexistente'},
-    {valor: 1, texto: '25% - Inical'},
+    {valor: 1, texto: '25% - Inicial'},
     {valor: 2, texto: '50% - Intermedio'},
     {valor: 3, texto: '75% - Avanzado'},
     {valor: 4, texto: '100%  - Optimo'},

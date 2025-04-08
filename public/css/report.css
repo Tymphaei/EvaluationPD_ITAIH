@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: "Inter",sans-serif;
@@ -15,7 +14,6 @@ body {
   align-items: center;
   padding: 5px 20px;
   background-color: #462a68;
-  /* border-bottom: 1px solid #ddd; */
   z-index: 1000;
 }
 
@@ -79,43 +77,6 @@ body {
 #bt_nav:hover{
   background-color: #533a6b;
 }
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px;
-}
-.card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  width: 600px;
-  text-align: center;
-}
-
-.card canvas {
-  width: 350px;
-  height: 350px;
-}
-
-.general-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  width: 95%;
-  margin-top: 40px;
-  text-align: center;
-}
-.general-card canvas {
-  width: 1000px;
-  height: 600px;
-}
-
-
-
 
 /* Welcome Section */
 
@@ -182,11 +143,44 @@ body {
 
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  width: 600px;
+  text-align: center;
+}
+
+.card canvas {
+  width: 350px;
+  height: 350px;
+}
+
+.general-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 95%;
+  margin-top: 40px;
+  text-align: center;
+}
+.general-card canvas {
+  width: 1000px;
+  height: 600px;
+}
+
 .example-image {
   max-width: 100%;
   height: auto;
 }
-
 
 .response-table {
   width: 100%;
@@ -267,6 +261,100 @@ body {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+#heatmapContainer {
+  margin: 40px 0;
+  background: #ffffff;
+  border-radius: 0; /* Eliminar bordes redondeados */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.heatmap-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Inter', sans-serif;
+  table-layout: fixed;
+}
+
+.heatmap-table th {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 1.2rem;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.heatmap-table td {
+  padding: 1.5rem;
+  border: 1px solid #e8eff5;
+  text-align: center;
+  font-weight: 500;
+  color: #2c3e50;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  line-height: 1.4;
+}
+
+.heatmap-table tr:nth-child(even) td {
+  background: #f9fbfd;
+}
+
+.heatmap-table tr:hover td {
+  background: #f3f7fb;
+  transform: scale(1.02);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+:root {
+  --heatmap-low: #ff6b6b;
+  --heatmap-medium: #ffd93d;
+  --heatmap-high: #4ecdc4;
+}
+
+.heatmap-legend {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.legend-color {
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  #heatmapContainer {
+    padding: 1rem;
+    margin: 20px -15px;
+  }
+
+  .heatmap-table th,
+  .heatmap-table td {
+    padding: 0.8rem;
+    font-size: 0.85em;
+  }
+}
+
 /* Footer Section */
 
 .footer {
@@ -323,105 +411,4 @@ body {
 
 .social-links a:hover, .footer-links a:hover {
   color: #070793;
-}
-
-
-/* Mapa de Calor - Versión Moderna */
-#heatmapContainer {
-  margin: 40px 0;
-  background: #ffffff;
-  border-radius: 0; /* Eliminar bordes redondeados */
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-  padding: 2rem;
-}
-
-.heatmap-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-family: 'Inter', sans-serif;
-  table-layout: fixed;
-}
-
-.heatmap-table th {
-  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-  color: #ffffff;
-  font-weight: 600;
-  padding: 1.2rem;
-  border: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 0.9em;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.heatmap-table td {
-  padding: 1.5rem;
-  border: 1px solid #e8eff5;
-  text-align: center;
-  font-weight: 500;
-  color: #2c3e50;
-  background: #ffffff;
-  transition: all 0.3s ease;
-  line-height: 1.4;
-}
-
-.heatmap-table tr:nth-child(even) td {
-  background: #f9fbfd;
-}
-
-.heatmap-table tr:hover td {
-  background: #f3f7fb;
-  transform: scale(1.02);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-}
-
-/* Nueva escala de colores más moderna */
-:root {
-  --heatmap-low: #ff6b6b;    /* Rojo coral */
-  --heatmap-medium: #ffd93d; /* Amarillo vibrante */
-  --heatmap-high: #4ecdc4;   /* Verde azulado */
-}
-
-
-
-/* Leyenda moderna */
-.heatmap-legend {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  background: #ffffff;
-  border-radius: 0;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-}
-
-.legend-color {
-  width: 30px;
-  height: 30px;
-  margin-right: 1rem;
-  border: 2px solid #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  #heatmapContainer {
-    padding: 1rem;
-    margin: 20px -15px;
-  }
-
-  .heatmap-table th,
-  .heatmap-table td {
-    padding: 0.8rem;
-    font-size: 0.85em;
-  }
 }

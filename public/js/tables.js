@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-  const formID = localStorage.getItem('form_ID');
+  const formID = localStorage.getItem('formID');
   if (!formID) return;
 
   const percentageTextMap = {
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const response = await fetch(`/api/responses/${formID}`);
     const data = await response.json();
-    console.log("Datos obtenidos:", data);
 
     const containers = document.querySelectorAll('div[id^="table-container"]');
 

@@ -1,4 +1,4 @@
-<!-- report-graphs.html: Página que genera los resultados en graficas de barras  -->
+<!-- report-responses.html: Página que genera los resultados en tablas  -->
 
 <!DOCTYPE html>
 <html lang="es">
@@ -10,7 +10,8 @@
   <title>Report</title>
   <meta charset="UTF-8">
   <script src="/js/get_info.js"></script>
-  <script src="/js/get_username.js" defer></script>
+  <script src="/js/get_profile.js" defer></script>
+  <script src="/js/tables.js"></script>
 </head>
 
 <body>
@@ -22,9 +23,9 @@
   </div>
   <nav class="nav">
     <ul class="nav-list">
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#cards">Normativas</a></li>
-      <li><a href="#evaluation">Evaluación</a></li>
+      <li><a href="home.html#">Inicio</a></li>
+      <li><a href="home.html#cards">Normativas</a></li>
+      <li><a href="home.html#evaluation">Evaluación</a></li>
       <li><a href="profile.html">
         <button id="bt_nav">Perfil</button>
       </a></li>
@@ -39,7 +40,7 @@
     Personales en Posesión de Sujetos Obligados</h2>
   <br>
 
-  <p>Institución: <span id="usuario-nombre">nombre</span> </p>
+  <p>Institución: <span id="nombre-completo">nombre</span> </p>
   <p>Tratamiento: <span id="tratamiento">tratamiento</span></p>
   <p>Area: <span id="area">area</span></p>
   <p>Fecha: <span id="fecha">fecha</span></p>
@@ -803,7 +804,6 @@
 
   <div id="table-container130"></div>
 
-  <script src="/js/tables.js"></script>
 
   <div class="button-container">
     <a href="report-graphs.html" class="back-button">Regresar a Gráficas</a>

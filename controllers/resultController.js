@@ -56,7 +56,33 @@ exports.getResponsesByFormId = async (req, res) => {
     const [result] = await db.query(sql,[formID]);
     res.json(result);
   } catch (err) {
-    console.error('Error al obtener los datos de la evaluacion:', err);
-    res.status(500).json({ error: 'Error al obtener los datos de la evaluacion' });
+    console.error('Error al obtener los datos de la evaluación:', err);
+    res.status(500).json({ error: 'Error al obtener los datos de la evaluación' });
+  }
+};
+
+exports.getSectionProgress = async (req, res) => {
+  if (!req.session || !req.session.username) {
+    return res.status(401).json({ success: false, message: 'Usuario no autenticado' });
+  }
+  const username = req.session.username;
+
+  try {
+    const [data] = await db.query(
+      `SELECT f.form_ID, f.date, s.evaluation_number AS section, r.percentage * 25 AS percentage
+       FROM formularios f
+       JOIN secciones s ON f.form_ID = s.form_ID
+       JOIN respuestas r ON s.section_ID = r.section_ID
+       JOIN areas a ON f.area_ID = a.area_ID
+       WHERE a.user_ID = ?
+       ORDER BY s.evaluation_number, f.date`,
+      [username]
+    );
+
+    res.json({ success: true, data });
+
+  } catch (err) {
+    console.error('Error al obtener el progreso por sección:', err);
+    res.status(500).json({ success: false, message: 'Error al obtener el progreso por sección' });
   }
 };

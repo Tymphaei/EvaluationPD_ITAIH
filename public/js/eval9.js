@@ -1,5 +1,5 @@
 /*
-   Funcion para la evaluación No.9
+   Función para la evaluación No.9
 */
 
 function marcarFormularioCompleto() {

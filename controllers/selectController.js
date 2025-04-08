@@ -1,5 +1,5 @@
 /*
-   Controladores para añadir areas y tratamientos
+   Controladores para añadir áreas y tratamientos
 */
 
 const db = require('../config/dbConfig');

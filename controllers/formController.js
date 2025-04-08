@@ -34,7 +34,6 @@ exports.addForm = async (req, res) => {
   try {
     const [result] = await db.query(queryFormulario, [formDetails.area_ID, formDetails.processing_ID, formDetails.complete]);
     const formID = result.insertId;
-    console.log('respuestas id formController: ', formID);
 
     res.status(200).json({ formID });
   } catch (err) {

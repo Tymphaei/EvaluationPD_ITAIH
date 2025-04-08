@@ -1,5 +1,5 @@
 /*
-   Script para mostrar, añadir y eliminar areas y tratamientos para iniciar una evaluación
+   Script para mostrar, añadir y eliminar áreas y tratamientos para iniciar una evaluación
 */
 
 async function cargarAreas() {
@@ -179,7 +179,6 @@ function crearFormulario(processing_ID, area_ID) {
       .then(data => {
         if (data.formID) {
           localStorage.setItem('formID', data.formID);
-          console.log('Formulario creado con éxito');
           resolve();
         } else {
           alert('Ocurrió un error al guardar el formulario');

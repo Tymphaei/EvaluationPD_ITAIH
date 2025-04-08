@@ -9,7 +9,9 @@
   <link href="/css/profile.css" rel="stylesheet"/>
   <title>Perfil</title>
   <meta charset="UTF-8">
-  <script src="/js/get_username.js"></script>
+  <script src="/js/get_profile.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/js/graph_profile.js"></script>
 </head>
 
 <body>
@@ -35,15 +37,26 @@
 
 <main class="main">
 
-  <div class="container">
-    <div class="column column-30">
-      <img src="/images/logo.png" alt="Imagen" class="image">
+  <section class="profile-section">
+    <div class="profile-image-container">
+      <img src="/images/user_default.png" alt="Foto de perfil" class="profile-image">
     </div>
-    <div class="column column-70">
-      <h2><span id="usuario-nombre">usuario</span></h2>
+    <div class="profile-info">
+      <h2 id="nombre-completo">Nombre completo del usuario</h2>
+      <p><strong>Nombre de usuario:</strong> <span id="nombre-usuario">usuario123</span></p>
+      <p><strong>Dirección:</strong> <span id="direccion-usuario">Calle Falsa 123, Ciudad, País</span></p>
+      <p><strong>Email:</strong> <span id="email-usuario">usuario@example.com</span></p>
     </div>
-  </div>
+  </section>
 
+  <section class="grafica-section">
+    <h2>Resumen de Actividad</h2>
+    <div id="grafica-contenedor">
+      <div id="grafica-progreso-container">
+        <canvas id="grafica-progreso"></canvas>
+      </div>
+    </div>
+  </section>
 
 </main>
 

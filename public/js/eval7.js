@@ -1,5 +1,5 @@
 /*
-   Funcion para la evaluación No.7
+   Función para la evaluación No.7
 */
 
 function guardarFormulario(action) {

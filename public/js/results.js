@@ -9,10 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const lista = document.getElementById('listaFormularios');
       lista.innerHTML = '';
 
-      console.log('Data recibida del servidor:', data);
 
       data.forEach(formulario => {
-        console.log('Formulario:', formulario);
 
         const fila = document.createElement('tr');
         fila.innerHTML = `
@@ -28,12 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.btn-seleccionar').forEach(button => {
           button.addEventListener('click', function () {
             const formID = this.getAttribute('data-form-id');
-            console.log('form_ID seleccionado:', formID);
             localStorage.setItem('formID', formID);
             window.location.href = `report-graphs.html`;
           });
         });
-        console.log('Eventos de clic asignados a botones');
       }, 100);
     })
     .catch(error => console.error('Error al obtener los formularios:', error));

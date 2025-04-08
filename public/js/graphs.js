@@ -116,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
 const createHeatmap = (data) => {
   if (!data || !Array.isArray(data)) {
     console.error('Datos inválidos para el mapa de calor:', data);
@@ -147,7 +146,6 @@ const createHeatmap = (data) => {
   const table = document.createElement('table');
   table.className = 'heatmap-table';
 
-  // Cabecera
   const headerRow = table.insertRow();
   ['Sección', '0%', '25%', '50%', '75%', '100%'].forEach(text => {
     const th = document.createElement('th');
@@ -155,18 +153,15 @@ const createHeatmap = (data) => {
     headerRow.appendChild(th);
   });
 
-  // Filas de datos
   Object.keys(heatmapData).sort().forEach(section => {
     const scores = heatmapData[section];
     const total = scores.reduce((a, b) => a + b, 0);
 
     const row = table.insertRow();
 
-    // Celda de sección
     const sectionCell = row.insertCell();
     sectionCell.textContent = `Sección ${section}`;
 
-    // Celdas de frecuencia
     scores.forEach((count, index) => {
       const cell = row.insertCell();
       const percentage = total > 0 ? (count / total * 100).toFixed(1) + '%' : '0%';
@@ -179,16 +174,13 @@ const createHeatmap = (data) => {
   container.appendChild(table);
 };
 
-// Función de color (rojo-bajo → verde-alto)
 const getHeatmapColor = (value) => {
-  const hue = value * 120; // 0 = rojo, 120 = verde
+  const hue = value * 120;
   return `hsl(${hue}, 100%, 50%)`;
 };
 
-// Llamar después de generar las gráficas
-createHeatmap(data); // 'data' es el JSON original de la API
+createHeatmap(data);
 
-// Agregar al final de createHeatmap()
 const legend = document.createElement('div');
 legend.className = 'heatmap-legend';
 

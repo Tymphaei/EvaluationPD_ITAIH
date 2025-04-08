@@ -1,5 +1,5 @@
 /*
-   Controladores para la autenticación y obtencion de datos del usuario autenticado
+   Controladores para la autenticación y obtención de datos del usuario autenticado
 */
 
 const bcrypt = require('bcryptjs');
@@ -38,6 +38,29 @@ const authController = {
       res.json({ name: req.session.name });
     } else {
       res.status(401).json({ error: 'No authenticated' });
+    }
+  },
+
+  getUserProfile: async (req, res) => {
+    if (!req.session || !req.session.username) {
+      return res.status(401).json({ success: false, message: 'Usuario no autenticado' });
+    }
+
+    try {
+      const [results] = await db.query(
+        'SELECT name, username, address, email FROM usuarios WHERE username = ?',
+        [req.session.username]
+      );
+
+      if (results.length === 0) {
+        return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+      }
+
+      res.json({ success: true, data: results[0] });
+
+    } catch (err) {
+      console.error('Error en la consulta del perfil:', err);
+      res.status(500).json({ success: false, message: 'Error del servidor' });
     }
   },
 
