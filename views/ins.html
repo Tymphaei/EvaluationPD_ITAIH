@@ -1,0 +1,326 @@
+<!-- ins.html: Instructivo para realizar la evaluación  -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Maax+Rounded&display=swap" rel="stylesheet"/>
+  <link href="/css/ins.css" rel="stylesheet"/>
+  <title>Glosario</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo-title_section">
+    <img src="/images/logo.png" alt="Logo de la Institución" id="logo_header">
+    <h1 id="main-title_header">Sistema de gestión para la protección de datos personales para sujetos obligados</h1>
+  </div>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li><a href="home.html#">Inicio</a></li>
+      <li><a href="home.html#cards">Normativas</a></li>
+      <li><a href="home.html#evaluation">Evaluación</a></li>
+      <li><a href="profile.html">
+        <button id="bt_nav">Perfil</button>
+      </a></li>
+      <li><a id="logoutButton"><img src="/images/signout.png" id="img_nav"></a></li>
+    </ul>
+    <script src="/js/logout.js"></script>
+  </nav>
+</header>
+
+<main class="main">
+  <section class="pasos-evaluacion">
+    <h1 class="titulo-principal">Guía Paso a Paso para Realizar tu Evaluación</h1>
+
+    <!-- Paso 1 -->
+    <article class="paso-card">
+      <div class="paso-header">
+        <span class="paso-numero">1</span>
+        <h2>Configuración Inicial</h2>
+      </div>
+      <div class="paso-contenido">
+        <div class="subpaso">
+          <h3>1.1 Acceso al Módulo de Evaluación</h3>
+          <ul class="instrucciones-list">
+            <li>Desde el dashboard principal, haga clic en <strong>"Nueva Evaluación"</strong></li>
+          </ul>
+        </div>
+
+        <div class="subpaso">
+          <h3>1.2 Gestión de Tratamientos y Áreas</h3>
+
+          <div class="instruccion-paso">
+            <h4>Para Tratamientos:</h4>
+            <ol>
+              <li><strong>Seleccionar existente:</strong>
+                <ul>
+                  <li>En el campo <em>"Seleccione tratamiento"</em>, elija uno del listado desplegable</li>
+                  <li>Para eliminar: <button class="boton-instruccion peligro">Eliminar Tratamiento Seleccionado</button></li>
+                </ul>
+              </li>
+              <li><strong>Agregar nuevo:</strong>
+                <ul>
+                  <li>Escriba el nombre en <em>"Nuevo tratamiento"</em></li>
+                  <li>Haga clic en <button class="boton-instruccion">Añadir Tratamiento</button></li>
+                  <li>Si ya existe, verá: <span class="mensaje-error">⚠️ Este tratamiento ya existe</span></li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div class="instruccion-paso">
+            <h4>Para Áreas:</h4>
+            <ol>
+              <li><strong>Seleccionar existente:</strong>
+                <ul>
+                  <li>En el campo <em>"Seleccione área"</em>, elija una del listado desplegable</li>
+                  <li>Para eliminar: <button class="boton-instruccion peligro">Eliminar Área Seleccionada</button></li>
+                </ul>
+              </li>
+              <li><strong>Agregar nueva:</strong>
+                <ul>
+                  <li>Escriba el nombre en <em>"Nueva área"</em></li>
+                  <li>Haga clic en <button class="boton-instruccion">Añadir Área</button></li>
+                  <li>Si ya existe, verá: <span class="mensaje-error">⚠️ Esta área ya existe</span></li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div class="nota-importante">
+            <p>🔹 Requisitos para continuar:</p>
+            <ul>
+              <li>Debe tener al menos <strong>1 tratamiento y 1 área</strong> seleccionados</li>
+              <li>Nombres deben ser <strong>únicos</strong> y sin caracteres especiales</li>
+            </ul>
+          </div>
+
+          <div class="ejemplo-interfaz">
+            <img src="/images/select_page.png" alt="Ejemplo visual de la interfaz de selección">
+            <p class="pie-foto">Ejemplo: Selección de tratamientos y áreas existentes</p>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- Paso 2 -->
+    <article class="paso-card">
+      <div class="paso-header">
+        <span class="paso-numero">2</span>
+        <h2>Completar el Cuestionario</h2>
+      </div>
+      <div class="paso-contenido">
+        <div class="subpaso">
+          <h3>2.1 Navegación entre Secciones</h3>
+          <div class="diagrama-flujo">
+            <div class="flujo-item">Sección 1: Consentimiento</div>
+            <div class="flujo-flecha">↓</div>
+            <div class="flujo-item">Sección 2: Medidas de Seguridad</div>
+            <div class="flujo-flecha">↓</div>
+            <div class="flujo-item">... hasta Sección 9</div>
+          </div>
+          <p>Use los botones <button class="boton-instruccion">Guardar y Salir</button> y <button class="boton-instruccion">Guardar y continuar</button> para continuar o salir sin perder su progreso</p>
+        </div>
+
+        <div class="subpaso">
+          <h3>2.2 Estructura de una Pregunta Tipo</h3>
+
+          <div class="explicacion-evaluacion">
+            <!-- Ejemplo de pregunta -->
+            <div class="ejemplo-pregunta">
+              <div class="encabezado-pregunta">
+                <span class="seccion">Sección 3 - Artículo 15</span>
+                <span class="categoria">🗂️ Transferencias de Datos</span>
+              </div>
+
+              <div class="cuerpo-pregunta">
+                <div class="elemento-pregunta">
+                  <p class="numero-elemento">Elemento III.2:</p>
+                  <p class="texto-pregunta">¿Existen cláusulas contractuales para transferencias internacionales?</p>
+                </div>
+
+                <div class="demo-campos">
+                  <div class="demo-campo">
+                    <label>1. Nivel de Cumplimiento:</label>
+                    <div class="nivel-ejemplo intermedio">
+                      Intermedio (50%)
+                      <span class="info-icon">ℹ️</span>
+                    </div>
+                  </div>
+
+                  <div class="demo-campo">
+                    <label>2. Respuesta Técnica:</label>
+                    <div class="respuesta-ejemplo">
+                      "Contamos con cláusulas generales en contratos con proveedores,
+                      pero no específicas para transferencias internacionales"
+                      <span class="contador-caracteres">(298/500 caracteres)</span>
+                    </div>
+                  </div>
+
+                  <div class="demo-campo">
+                    <label>3. Evidencia:</label>
+                    <div class="evidencia-ejemplo">
+                      Contrato_ProveedorCloud_2024.pdf
+                    </div>
+                  </div>
+
+                  <div class="demo-campo">
+                    <label>4. Acciones de Mejora:</label>
+                    <div class="accion-ejemplo">
+                      "Elaborar cláusulas específicas para transferencias internacionales
+                      antes de Q4 2024 (Área responsable: Legal)"
+                      <span class="contador-caracteres">(152/500 caracteres)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="explicacion-niveles">
+              <h4>Guía de Niveles de Cumplimiento:</h4>
+              <div class="nivel-item inexistente">
+                <span class="nivel-titulo">Inexistente (0%):</span>
+                <span class="nivel-desc">Sin medidas implementadas</span>
+              </div>
+              <div class="nivel-item inicial">
+                <span class="nivel-titulo">Inicial (25%):</span>
+                <span class="nivel-desc">Implementación parcial con riesgos graves</span>
+              </div>
+              <div class="nivel-item intermedio">
+                <span class="nivel-titulo">Intermedio (50%):</span>
+                <span class="nivel-desc">Cumplimiento básico con riesgos moderados</span>
+              </div>
+              <div class="nivel-item avanzado">
+                <span class="nivel-titulo">Avanzado (75%):</span>
+                <span class="nivel-desc">Cumplimiento sustancial con riesgos menores</span>
+              </div>
+              <div class="nivel-item optimo">
+                <span class="nivel-titulo">Óptimo (100%):</span>
+                <span class="nivel-desc">Implementación completa y documentada</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- Paso 3 -->
+    <article class="paso-card">
+      <div class="paso-header">
+        <span class="paso-numero">3</span>
+        <h2>Generación y Análisis de Resultados</h2>
+      </div>
+      <div class="paso-contenido">
+        <div class="subpaso">
+          <h3>3.1 Validación Final</h3>
+          <ul class="instrucciones-list">
+            <li>Las evaluaciones con las 9 secciones completadas se mostrarán en <strong>"Resultados"</strong></li>
+          </ul>
+        </div>
+
+        <div class="subpaso">
+          <h3>3.1 Interpretación de Gráficas de Barras</h3>
+
+          <div class="explicacion-graficas">
+            <!-- Ejemplo visual -->
+            <div class="ejemplo-grafica">
+              <div class="grafica-demo">
+                <div class="barra-seccion" style="width: 100%">
+                  <div class="segmento rojo" style="width: 30%"></div>
+                  <div class="segmento amarillo" style="width: 50%"></div>
+                  <div class="segmento azul" style="width: 20%"></div>
+                </div>
+                <div class="leyenda-eje">
+                  <span>0%</span>
+                  <span>100%</span>
+                </div>
+              </div>
+              <p class="pie-grafica">Ejemplo: Sección de Medidas de Seguridad</p>
+            </div>
+
+            <div class="leyenda-colores">
+              <div class="item-leyenda">
+                <div class="color-muestra rojo"></div>
+                <div class="descripcion-color">
+                  <h4>Rojo - Requiere Acción Inmediata (0-40%)</h4>
+                  <p>Indica elementos con cumplimiento críticamente bajo que deben atenderse prioritariamente</p>
+                </div>
+              </div>
+
+              <div class="item-leyenda">
+                <div class="color-muestra amarillo"></div>
+                <div class="descripcion-color">
+                  <h4>Amarillo - Necesita Mejora (41-70%)</h4>
+                  <p>Señala áreas con implementación parcial que requieren ajustes o documentación adicional</p>
+                </div>
+              </div>
+
+              <div class="item-leyenda">
+                <div class="color-muestra azul"></div>
+                <div class="descripcion-color">
+                  <h4>Azul - Cumplimiento Satisfactorio (71-100%)</h4>
+                  <p>Muestra elementos que cumplen con los estándares requeridos</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="instrucciones-analisis">
+              <h4>Cómo analizar las gráficas:</h4>
+              <ul>
+                <li>La <strong>longitud total de la barra</strong> representa el cumplimiento general de la sección</li>
+                <li>La <strong>proporción de colores</strong> muestra la distribución de los elementos evaluados</li>
+              </ul>
+
+              <div class="nota-importante">
+                <p>📌 <strong>Nota:</strong> La gráfica general promedia todas las secciones, priorizando elementos rojos en su cálculo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subpaso">
+          <h3>3.3 Interpretación del Heatmap</h3>
+          <div class="leyenda-colores">
+            <div class="leyenda-item"><span class="color-rojo"></span>Riesgo Crítico (0-25%)</div>
+            <div class="leyenda-item"><span class="color-naranja"></span>Riesgo Alto (26-50%)</div>
+            <div class="leyenda-item"><span class="color-amarillo"></span>Riesgo Medio (51-75%)</div>
+            <div class="leyenda-item"><span class="color-verde"></span>Cumplimiento Óptimo (76-100%)</div>
+          </div>
+          <p>Haga clic en cualquier celda del heatmap para ver recomendaciones específicas</p>
+        </div>
+
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-column">
+    <h2 class="footer-title1">Instituto de Transparencia, Acceso a la Información Pública<br>
+      Gubernamental y Protección de Datos Personales del Estado de Hidalgo</h2>
+    <ul class="social-links">
+      <li><a href="https://www.facebook.com/INSTITUTODETRANSPARENCIAHIDALGO/" target="_blank">Facebook</a></li>
+      <li><a href="https://twitter.com/itaih_hidalgo" target="_blank">Twitter</a></li>
+      <li><a href="https://www.youtube.com/channel/UCzk4MGq1CgvWdt-R8uB3G9A" target="_blank">Youtube</a></li>
+    </ul>
+  </div>
+  <div class="footer-column2">
+    <h2 class="footer-title2">@2024</h2>
+    <ul class="footer-links">
+      <li><a href="#enlace1">Terminos y condiciones</a></li>
+      <li><a href="#enlace2">Aviso de Privacidad</a></li>
+      <li><a href="#enlace3">Politica de Cookies</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+
+</html>

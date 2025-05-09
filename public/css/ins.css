@@ -1,0 +1,503 @@
+body {
+  margin: 0;
+  font-family: "Inter",sans-serif;
+}
+
+/* Header Section */
+
+.header {
+  position: fixed;
+  width: 98%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  background-color: #462a68;
+  z-index: 1000;
+}
+
+.logo-title_section{
+  display: flex;
+  align-items: center;
+}
+
+#logo_header {
+  height: 100px;
+  margin-right: 15px;
+}
+
+#main-title_header {
+  font-size: 22px;
+  font-weight: normal;
+  color: whitesmoke;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-list li {
+  margin-left: 25px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.nav-list a:hover {
+  color: #6a2cac;
+}
+
+.img_nav{
+  height: 50px;
+}
+
+#img_nav{
+  height: 50px;
+}
+
+#bt_nav{
+  height: 52px;
+  width: 89px;
+  color: white;
+  background-color: #368107;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+#bt_nav:hover{
+  background-color: #533a6b;
+}
+
+/* Welcome Section */
+
+.main {
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 2rem 1.5rem;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: #2c3e50;
+  line-height: 1.7;
+}
+
+.main .titulo-principal {
+  font-size: 2.2rem;
+  color: #1a344f;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #368107;
+  font-weight: 600;
+}
+
+.main .paso-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+  margin-bottom: 2.5rem;
+  border: 1px solid #e8eef3;
+  overflow: hidden;
+}
+
+.main .paso-header {
+  background: #f8fafc;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e8eef3;
+}
+
+.main .paso-numero {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: #368107;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.main .paso-card h2 {
+  font-size: 1.5rem;
+  color: #1a344f;
+  margin: 0;
+}
+
+.main .paso-contenido {
+  padding: 2rem;
+}
+
+.main .subpaso {
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid #e8eef3;
+}
+
+.main .subpaso h3 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.main .subpaso h3::before {
+  content: "•";
+  color: #368107;
+  position: absolute;
+  left: -1.5rem;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.main .boton-instruccion {
+  background: #f0f4f8;
+  border: 1px solid #cbd6e2;
+  color: #368107;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.main .boton-instruccion:hover {
+  background: #368107;
+  color: white;
+  border-color: #368107;
+}
+
+.main .boton-instruccion.peligro {
+  background-color: #f0f4f8;
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.main .boton-instruccion.peligro:hover {
+  background-color: #bb2d3b;
+  border-color: #b02a37;
+  color: white;
+}
+
+.main .leyenda-colores {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.main .leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.main .color-rojo,
+.main .color-naranja,
+.main .color-amarillo,
+.main .color-verde {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.main .color-rojo { background: #e74c3c; }
+.main .color-naranja { background: #f39c12; }
+.main .color-amarillo { background: #f1c40f; }
+.main .color-verde { background: #27ae60; }
+
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem;
+  }
+
+  .main .titulo-principal {
+    font-size: 1.8rem;
+  }
+
+  .main .paso-contenido {
+    padding: 1rem;
+  }
+}
+
+.main * {
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.explicacion-evaluacion {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #fff;
+  margin: 1rem 0;
+}
+
+.encabezado-pregunta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.seccion { color: #666; font-size: 0.9em; }
+.categoria { color: #368107; font-weight: 500; }
+
+.elemento-pregunta {
+  margin-bottom: 2rem;
+}
+
+.numero-elemento {
+  color: #368107;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.texto-pregunta {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.demo-campo {
+  margin: 1.2rem 0;
+}
+
+.demo-campo label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.nivel-ejemplo {
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid;
+  display: inline-block;
+  min-width: 180px;
+  position: relative;
+}
+
+.nivel-ejemplo.intermedio {
+  background: #fff3cd;
+  border-color: #ffeeba;
+  color: #856404;
+}
+
+.respuesta-ejemplo,
+.evidencia-ejemplo,
+.accion-ejemplo {
+  padding: 0.8rem;
+  background: #f8f9fa;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  position: relative;
+}
+
+.contador-caracteres {
+  display: block;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.explicacion-niveles {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 6px;
+}
+
+.nivel-item {
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border-left: 4px solid;
+}
+
+.nivel-item.inexistente { border-color: #dc3545; }
+.nivel-item.inicial { border-color: #fd7e14; }
+.nivel-item.intermedio { border-color: #ffc107; }
+.nivel-item.avanzado { border-color: #28a745; }
+.nivel-item.optimo { border-color: #368107; }
+
+.nivel-titulo {
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.explicacion-graficas {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.grafica-demo {
+  width: 80%;
+  margin: 1rem auto;
+  position: relative;
+  height: 40px;
+}
+
+.barra-seccion {
+  background: #f0f0f0;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.segmento {
+  height: 100%;
+  float: left;
+  transition: width 0.3s ease;
+}
+
+.segmento.rojo { background: #e74c3c; }
+.segmento.amarillo { background: #f1c40f; }
+.segmento.azul { background: #3498db; }
+
+.leyenda-eje {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 0.5rem;
+}
+
+.pie-grafica {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin: 0.5rem 0 2rem 0;
+}
+
+.leyenda-colores {
+  margin: 2rem 0;
+}
+
+.item-leyenda {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.color-muestra {
+  width: 50px;
+  height: 30px;
+  border-radius: 4px;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.descripcion-color h4 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+}
+
+.descripcion-color p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95em;
+}
+
+.instrucciones-analisis ul {
+  list-style-type: square;
+  padding-left: 1.5rem;
+}
+
+.instrucciones-analisis li {
+  margin: 0.8rem 0;
+  line-height: 1.5;
+}
+
+.nota-importante {
+  background: #e9f5ff;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+}
+
+.ejemplo-interfaz img {
+  margin: 40px auto;
+  width: 80%;
+}
+
+
+/* Footer Section */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+}
+
+.footer-column {
+  flex: 1;
+  margin-left: 25px;
+}
+
+.footer-title1{
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+.footer-title2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.social-links, .footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.social-links li {
+  margin-right: 15px;
+}
+
+.footer-column2 {
+  text-align: left;
+  margin-right: 80px;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.social-links a, .footer-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.social-links a:hover, .footer-links a:hover {
+  color: #070793;
+}
